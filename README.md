@@ -21,4 +21,4 @@ For each of the methods within a `controller` we can run actions that will be ex
 It is worth noting that `authentication actions` have been stubbed as we have no way of reaching HMRC's auth service. You can see the stubbed `IdentifierAction` [here](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/app/controllers/actions/IdentifierAction.scala#L45).
 
 ## Where are the tests?
-The application has been `test driven` and for every file containing production code, there should be an associated `Spec` file containing all its tests. You can see all the tests [here](./test).
+The application has been `test driven` and for every file containing production code, there should be an associated `Spec` file containing all its tests. You can see all the tests [here](https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/test).
