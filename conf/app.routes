@@ -27,3 +27,8 @@ GET        /first-number                                controllers.FirstNumberC
 POST       /first-number                                controllers.FirstNumberController.onSubmit(mode: Mode = NormalMode)
 GET        /change-first-number                        controllers.FirstNumberController.onPageLoad(mode: Mode = CheckMode)
 POST       /change-first-number                        controllers.FirstNumberController.onSubmit(mode: Mode = CheckMode)
+
+GET        /second-number                  controllers.SecondNumberController.onPageLoad(mode: Mode = NormalMode)
+POST       /second-number                  controllers.SecondNumberController.onSubmit(mode: Mode = NormalMode)
+GET        /change-second-number                        controllers.SecondNumberController.onPageLoad(mode: Mode = CheckMode)
+POST       /change-second-number                        controllers.SecondNumberController.onSubmit(mode: Mode = CheckMode)

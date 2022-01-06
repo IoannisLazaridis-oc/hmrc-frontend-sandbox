@@ -14,16 +14,20 @@
  * limitations under the License.
  */
 
-package generators
+package forms
 
-import org.scalacheck.Arbitrary
-import pages._
+import forms.mappings.Mappings
+import javax.inject.Inject
+import play.api.data.Form
 
-trait PageGenerators {
+class SecondNumberFormProvider @Inject() extends Mappings {
 
-  implicit lazy val arbitrarySecondNumberPage: Arbitrary[SecondNumberPage.type] =
-    Arbitrary(SecondNumberPage)
-
-  implicit lazy val arbitraryFirstNumberPage: Arbitrary[FirstNumberPage.type] =
-    Arbitrary(FirstNumberPage)
+  def apply(): Form[Int] =
+    Form(
+      "value" -> int(
+        "secondNumber.error.required",
+        "secondNumber.error.wholeNumber",
+        "secondNumber.error.nonNumeric")
+          .verifying(inRange(10, 20, "secondNumber.error.outOfRange"))
+    )
 }

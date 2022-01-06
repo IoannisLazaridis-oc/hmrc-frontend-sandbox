@@ -67,3 +67,12 @@ firstNumber.error.required = Enter your firstNumber
 firstNumber.error.wholeNumber = Enter your firstNumber using whole numbers
 firstNumber.error.outOfRange = FirstNumber must be between {0} and {1}
 firstNumber.change.hidden = FirstNumber
+
+secondNumber.title = SecondNumber
+secondNumber.heading = SecondNumber
+secondNumber.checkYourAnswersLabel = SecondNumber
+secondNumber.error.nonNumeric = Enter your secondNumber using numbers
+secondNumber.error.required = Enter your secondNumber
+secondNumber.error.wholeNumber = Enter your secondNumber using whole numbers
+secondNumber.error.outOfRange = SecondNumber must be between {0} and {1}
+secondNumber.change.hidden = SecondNumber
