@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
-package generators
+package pages
 
-import org.scalacheck.Arbitrary
-import pages._
+import pages.behaviours.PageBehaviours
 
-trait PageGenerators {
+class FirstNumberPageSpec extends PageBehaviours {
 
-  implicit lazy val arbitraryFirstNumberPage: Arbitrary[FirstNumberPage.type] =
-    Arbitrary(FirstNumberPage)
+  "FirstNumberPage" - {
+
+    beRetrievable[Int](FirstNumberPage)
+
+    beSettable[Int](FirstNumberPage)
+
+    beRemovable[Int](FirstNumberPage)
+  }
 }

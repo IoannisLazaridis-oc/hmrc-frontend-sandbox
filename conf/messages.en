@@ -58,3 +58,12 @@ unauthorised.heading = You can’t access this service with this account
 
 helloWorld.title = helloWorld
 helloWorld.heading = helloWorld
+
+firstNumber.title = FirstNumber
+firstNumber.heading = FirstNumber
+firstNumber.checkYourAnswersLabel = FirstNumber
+firstNumber.error.nonNumeric = Enter your firstNumber using numbers
+firstNumber.error.required = Enter your firstNumber
+firstNumber.error.wholeNumber = Enter your firstNumber using whole numbers
+firstNumber.error.outOfRange = FirstNumber must be between {0} and {1}
+firstNumber.change.hidden = FirstNumber
