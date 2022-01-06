@@ -29,6 +29,10 @@ class NavigatorSpec extends SpecBase {
 
     "in Normal mode" - {
 
+      "must go from First Number Page to Second Number Page" in {
+        navigator.nextPage(FirstNumberPage,NormalMode,UserAnswers("id")) mustBe routes.SecondNumberController.onPageLoad(NormalMode)
+      }
+
       "must go from a page that doesn't exist in the route map to Index" in {
 
         case object UnknownPage extends Page
