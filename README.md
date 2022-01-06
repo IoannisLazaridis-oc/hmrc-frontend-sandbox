@@ -18,7 +18,7 @@ For each of the methods within a `controller` we can run actions that will be ex
 `Action` is an interface that Play exposes that allows us to encapsulate common behaviour. They are similar in concept to Scala's `Function` type and we chain Actions together using the `andThen` method.
 
 ## How can I add authentication?
-It is worth noting that `authentication actions` have been stubbed as we have no way of reaching HMRC's auth service. You can see the stubbed `IdentifierAction` [here](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/app/controllers/actions/IdentifierAction.scala#L45).
+It is worth noting that `authentication actions` have been stubbed as we have no way of reaching HMRC's auth service. You can see the stubbed `IdentifierAction` [here](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/app/controllers/actions/IdentifierAction.scala#L45). Notice that all related tests in [`AuthActionSpec`](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/test/controllers/actions/AuthActionSpec.scala) are ignored since the behaviour described in them is commented out.
 
 ## Where are the tests?
 
