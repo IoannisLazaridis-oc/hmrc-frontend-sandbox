@@ -17,6 +17,8 @@
 package controllers
 
 import controllers.actions._
+import pages.{FirstNumberPage, SecondNumberPage}
+
 import javax.inject.Inject
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
@@ -34,6 +36,12 @@ class CalculationResultController @Inject()(
 
   def onPageLoad: Action[AnyContent] = (identify andThen getData andThen requireData) {
     implicit request =>
-      Ok(view())
+      val firstNumber: Option[Int] = request.userAnswers.get(FirstNumberPage)
+      val secondNumber: Option[Int] = request.userAnswers.get(SecondNumberPage)
+
+      (firstNumber,secondNumber) match {
+        case (Some(first),Some(second)) => Ok(view(Some(first + second)))
+        case _ => Ok(view(None))
+      }
   }
 }

@@ -19,9 +19,17 @@
         govukButton: GovukButton
 )
 
-@()(implicit request: Request[_], messages: Messages)
+@(result: Option[Int])(implicit request: Request[_], messages: Messages)
 
 @layout(pageTitle = titleNoForm(messages("calculationResult.title"))) {
 
     <h1 class="govuk-heading-xl">@messages("calculationResult.heading")</h1>
+    @result.getOrElse("Not enough information")
+
+    <p class="govuk-body">
+        @govukButton(
+        ButtonViewModel(messages("site.startAgain"))
+        .asLink(routes.IndexController.onPageLoad().url)
+        )
+    </p>
 }
