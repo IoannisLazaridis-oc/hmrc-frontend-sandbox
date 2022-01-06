@@ -76,3 +76,6 @@ secondNumber.error.required = Enter your secondNumber
 secondNumber.error.wholeNumber = Enter your secondNumber using whole numbers
 secondNumber.error.outOfRange = SecondNumber must be between {0} and {1}
 secondNumber.change.hidden = SecondNumber
+
+calculationResult.title = calculationResult
+calculationResult.heading = calculationResult

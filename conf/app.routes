@@ -32,3 +32,5 @@ GET        /second-number                  controllers.SecondNumberController.on
 POST       /second-number                  controllers.SecondNumberController.onSubmit(mode: Mode = NormalMode)
 GET        /change-second-number                        controllers.SecondNumberController.onPageLoad(mode: Mode = CheckMode)
 POST       /change-second-number                        controllers.SecondNumberController.onSubmit(mode: Mode = CheckMode)
+
+GET        /calculation-result                       controllers.CalculationResultController.onPageLoad()

@@ -28,6 +28,7 @@ class Navigator @Inject()() {
 
   private val normalRoutes: Page => UserAnswers => Call = {
     case FirstNumberPage => _ => routes.SecondNumberController.onPageLoad(NormalMode)
+    case SecondNumberPage => _ => routes.CalculationResultController.onPageLoad()
     case _ => _ => routes.IndexController.onPageLoad()
   }
 
