@@ -12,6 +12,18 @@ This application follows a standard [`MVC pattern`](https://en.wikipedia.org/wik
 ## How do I add content?
 All content displayed within any views will always be fed through a `messages file` located [here (for English language)](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/conf/messages.en) and [here (for Welsh language)](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/conf/messages.cy)
 
+## Routes
+You can see the catalogue of accessible pages on your site via your [`routes`](./conf/app.routes) file. Every new page you create will require its associated `route` here.
+
+## Navigation
+Navigation behaviour is abstracted out from the `controller` and injected into it as an external dependency. Typically, the [`navigator`](./app/navigation/Navigator.scala) exposes a `nextPage` method that will encapsulate all behaviour related for navigation purposes.
+
+## Navigation modes
+There are two modes of navigation, `NormalMode` and `CheckMode`. Typically, you will use `NormalMode` for navigation that will progress you through your user journey (i.e. go forward) and `CheckMode` for navigation that will go back into a specific page to modify an input. Have a look at the `navigator` tests [here](./test/navigation/NavigatorSpec.scala) to get a deeper understanding on how it works.
+
+## Check your answers pages
+These pages will typically appear at the end of a given section within your journey and it will display all the answers given for the section. It offers the user the possibility of changing any of the answers given (have a look at the navigation [here](./app/controllers/CheckYourAnswersController.scala), note that it is done in `CheckMode`)
+
 ## What are controller "Actions"?
 For each of the methods within a `controller` we can run actions that will be executed before the method body is, the most basic example can be found within the [Index Controller](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/app/controllers/IndexController.scala#L32), you can see that we run an `identify` action (ie, ensure the user is authenticated) before returning the [Index View](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/app/views/IndexView.scala.html).
 
