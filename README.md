@@ -8,6 +8,8 @@ This application follows a standard [`MVC pattern`](https://en.wikipedia.org/wik
 - [Views] (https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/views)
 - [Controllers] (https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/controllers)
 
+To run the application, execute `sbt run` and it will start it in port `9335`. [This](http://localhost:9335/hmrc-frontend-sandbox/) will be the root of your site (index)
+
 ## Routes
 You can see the catalogue of accessible pages on your site via your [`routes`](./conf/app.routes) file. Every new page you create will require its associated `route` here.
 
