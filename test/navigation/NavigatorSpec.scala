@@ -33,8 +33,8 @@ class NavigatorSpec extends SpecBase {
         navigator.nextPage(FirstNumberPage,NormalMode,UserAnswers("id")) mustBe routes.SecondNumberController.onPageLoad(NormalMode)
       }
 
-      "must go from Second Number Page to Calculation Result Page" in {
-        navigator.nextPage(SecondNumberPage,NormalMode,UserAnswers("id")) mustBe routes.CalculationResultController.onPageLoad()
+      "must go from Second Number Page to Check Your Answers Page" in {
+        navigator.nextPage(SecondNumberPage,NormalMode,UserAnswers("id")) mustBe routes.CheckYourAnswersController.onPageLoad()
       }
 
       "must go from a page that doesn't exist in the route map to Index" in {

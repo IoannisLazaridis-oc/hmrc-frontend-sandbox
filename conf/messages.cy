@@ -10,6 +10,7 @@ site.start = Dechreuwch nawr
 site.startAgain = Dechrau eto
 site.signIn = Mewngofnodi
 site.govuk = GOV.UK
+site.submit = Cyflwyno
 
 date.day = Dydd
 date.month = Mis
