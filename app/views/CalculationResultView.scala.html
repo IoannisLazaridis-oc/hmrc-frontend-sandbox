@@ -23,8 +23,16 @@
 
 @layout(pageTitle = titleNoForm(messages("calculationResult.title"))) {
 
-    <h1 class="govuk-heading-xl">@messages("calculationResult.heading")</h1>
-    @result.getOrElse("Not enough information")
+    <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+            @messages("calculationResult.success")
+        </h1>
+        <div class="govuk-panel__body">
+            @messages("calculationResult.text")
+            <br>
+            <strong>@result.getOrElse("Not enough information")</strong>
+        </div>
+    </div>
 
     <p class="govuk-body">
         @govukButton(

@@ -37,7 +37,8 @@ error.summary.title = There is a problem
 
 index.title = HMRC Frontend Sandbox
 index.heading = HMRC Frontend Sandbox
-index.guidance = Welcome to the HMRC Frontend Sandbox, this application contains all the required foundations and boiler plate for any HMRC frontend application.
+index.guidance = Welcome to the HMRC Frontend Sandbox, this application contains a very short journey of a calculator adding up two numbers. Take your time to understand how everything works and feel free to make any changes you want.
+index.helpGuidance = Remember, you can always refer to the README within github for guidance. Also, feel free to contact anybody for help!
 
 checkYourAnswers.title = Check Your Answers
 checkYourAnswers.heading = Check Your Answers
@@ -59,23 +60,26 @@ unauthorised.heading = You can’t access this service with this account
 helloWorld.title = helloWorld
 helloWorld.heading = helloWorld
 
-firstNumber.title = FirstNumber
-firstNumber.heading = FirstNumber
-firstNumber.checkYourAnswersLabel = FirstNumber
-firstNumber.error.nonNumeric = Enter your firstNumber using numbers
-firstNumber.error.required = Enter your firstNumber
-firstNumber.error.wholeNumber = Enter your firstNumber using whole numbers
-firstNumber.error.outOfRange = FirstNumber must be between {0} and {1}
+firstNumber.title = What is your first number?
+firstNumber.heading = What is your first number?
+firstNumber.checkYourAnswersLabel = First number
+firstNumber.error.nonNumeric = Enter your first number using numbers
+firstNumber.error.required = Enter your first number
+firstNumber.error.wholeNumber = Enter your first number using whole numbers
+firstNumber.error.outOfRange = Your first number must be between {0} and {1}
 firstNumber.change.hidden = FirstNumber
 
-secondNumber.title = SecondNumber
-secondNumber.heading = SecondNumber
-secondNumber.checkYourAnswersLabel = SecondNumber
-secondNumber.error.nonNumeric = Enter your secondNumber using numbers
-secondNumber.error.required = Enter your secondNumber
-secondNumber.error.wholeNumber = Enter your secondNumber using whole numbers
-secondNumber.error.outOfRange = SecondNumber must be between {0} and {1}
+secondNumber.title = What is your second number?
+secondNumber.heading = What is your second number?
+secondNumber.checkYourAnswersLabel = Second number
+secondNumber.error.nonNumeric = Enter your second number using numbers
+secondNumber.error.required = Enter your second number
+secondNumber.error.wholeNumber = Enter your second number using whole numbers
+secondNumber.error.outOfRange = Your second number must be between {0} and {1}
 secondNumber.change.hidden = SecondNumber
 
-calculationResult.title = calculationResult
-calculationResult.heading = calculationResult
+calculationResult.title = Your calculation result
+calculationResult.success = Success
+calculationResult.heading = Your calculation result
+calculationResult.text = Your calculation result is
+
