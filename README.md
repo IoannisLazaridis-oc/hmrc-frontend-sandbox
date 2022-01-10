@@ -33,6 +33,8 @@ It is worth noting that `authentication actions` have been stubbed as we have no
 
 The application has been `test driven` and for every file containing production code, there should be an associated `Spec` file containing all its tests. You can see all the tests [here](./test).
 
+You can run all tests by running `sbt test`. Alternatively, if you load `sbt` and once it is loaded you run `~testQuick` it will monitor your files and run its associated tests every time you make a change in any file. This functionality is very handy when test driving your application.
+
 ## Content and Languages
 
 The application supports both English and Welsh. All content displayed within any views will always be fed through a `messages file` located [here (for English language)](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/conf/messages.en) and [here (for Welsh language)](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/conf/messages.cy)
