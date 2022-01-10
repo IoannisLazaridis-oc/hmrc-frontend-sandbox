@@ -43,6 +43,9 @@ The application supports both English and Welsh. All content displayed within an
 
 The switch of languages is executed via the Play! `LanguageController`. You can see where this code is executed [here](./app/views/templates/Layout.scala.html#L66)
 
+## Site parameters (configuration)
+
+You can see all site configuration parameters within the [`application.conf`](./conf/application.conf).
 
 ## Persistance
 
