@@ -4,9 +4,9 @@ Welcome to the HMRC Frontend Sandbox, this application contains all the required
 
 This application follows a standard [`MVC pattern`](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), with its main components located here:
 
-- [Models] (https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/models)
-- [Views] (https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/views)
-- [Controllers] (https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/controllers)
+- [Models](https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/models)
+- [Views](https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/views)
+- [Controllers](https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/controllers)
 
 To run the application, execute `sbt run` and it will start it in port `9335`. [This](http://localhost:9335/hmrc-frontend-sandbox/) will be the root of your site (index)
 
