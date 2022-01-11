@@ -36,14 +36,8 @@ class IndexController @Inject()(
                                ) extends FrontendBaseController with I18nSupport {
 
   def onPageLoad: Action[AnyContent] = (identify andThen getData) { implicit request =>
-    request.userAnswers match {
-      case None => {
-        sessionRepository.set(UserAnswers("test",Json.obj()))
-        Ok(view())
-      }
-      case _ => {
-        Ok(view())
-      }
-    }
+    if (request.userAnswers.isEmpty) sessionRepository.set(UserAnswers("test",Json.obj()))
+
+    Ok(view())
   }
 }
