@@ -1,5 +1,7 @@
 .cache
 /.classpath
+/.vscode
+/.metals
 db
 dist
 .DS_Store
