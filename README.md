@@ -43,6 +43,14 @@ The application supports both English and Welsh. All content displayed within an
 
 The switch of languages is executed via the Play! `LanguageController`. You can see where this code is executed [here](./app/views/templates/Layout.scala.html#L66)
 
+## User Answers
+
+[`UserAnswers`](./app/models/UserAnswers.scala) is the model that we use to represent and store the data gathered by the site as the user progresses through the journey. At its core, the model can be seen as a JSON container that will hold all data gathered with two more properties to make it unique to the user:
+
+- `id` property that is used to store the unique identifier of the user (plase note that as mentioned above, the id for the user has been stubbed and it will always be `test`, have another look [here](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/app/controllers/actions/IdentifierAction.scala#L45))
+- `data` which can be seen as a container for the `JSON` object that will contain all journey data.
+- `lastUpdated`
+
 ## Site parameters (configuration)
 
 You can see all site configuration parameters within the [`application.conf`](./conf/application.conf).
