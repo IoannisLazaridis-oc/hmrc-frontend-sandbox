@@ -20,6 +20,18 @@ After that, you will be able to select with version of JDK you want to use (for 
 export JAVA_HOME="/Users/yourUserName/.sdkman/candidates/java/current"
 ```
 
+You should be able to see that all is working with your expected version by running the command `java -version`
+
+```
+java -version
+openjdk version "1.8.0_292"
+OpenJDK Runtime Environment (build 1.8.0_292-b10)
+Eclipse OpenJ9 VM (build openj9-0.26.0, JRE 1.8.0 Mac OS X amd64-64-Bit Compressed References 20210421_909 (JIT enabled, AOT enabled)
+OpenJ9   - b4cc246d9
+OMR      - 162e6f729
+JCL      - 2a5e268814 based on jdk8u292-b10)
+```
+
 ### MongoDB
 
 You will also need a local instance of mongoDB running locally in port `27017`. If you have never installed mongoDB, you can easily do it by following [this guide](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/) (it is recommended to have mongoDB as a service running in the background).
