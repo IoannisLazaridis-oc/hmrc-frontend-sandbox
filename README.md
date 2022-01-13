@@ -10,10 +10,12 @@ This application follows a standard [`MVC pattern`](https://en.wikipedia.org/wik
 
 ## How to run it
 
-You will need the Java JDK installed, I recommend you manage this with an SDK Manager like [SDKMan](https://sdkman.io/). Install SDKMan (instructions [here](https://sdkman.io/install)) and once installed, you will be able to install java SDK through it (instructions [here](https://sdkman.io/usage)), after that, you will be able to select with version of JDK you want to use (for example, 1.8). Remember you will have to point your `JAVA_HOME` to use `sdkman`, for example:
+You will need the Java JDK installed, we recommend you manage this with an SDK Manager like [SDKMan](https://sdkman.io/). Install SDKMan (instructions [here](https://sdkman.io/install)) and once installed, you will be able to install java SDK through it (instructions [here](https://sdkman.io/usage)). 
+
+After that, you will be able to select with version of JDK you want to use (for example, 1.8). Remember you will have to point your `JAVA_HOME` to use `SDKMan`, for example:
 
 ```
-export JAVA_HOME="/Users/juan/.sdkman/candidates/java/current"
+export JAVA_HOME="/Users/yourUserName/.sdkman/candidates/java/current"
 ```
 
 You will also need a local instance of mongoDB running locally in port `27017`. If you have never installed mongoDB, you can easily do it by following [this guide](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/) (it is recommended to have mongoDB as a service running in the background).
