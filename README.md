@@ -65,7 +65,7 @@ Within mongoDB, user answers will look something like this:
 
 ```
 
-Please note that `firstNumber` and `secondNumber` represent the journey [pages](./app/pages) that the user goes through. For example, you can see the `JSON` path for the `First Number` page together with its name [here](./app/pages/FirstNumberPage.scala)
+Please note that `firstNumber` and `secondNumber` represent the journey [pages](./app/pages) that the user goes through. For example, you can see the `JSON` path for the `First Number` page together with its name [here](./app/pages/FirstNumberPage.scala).
 
 
 ## Site parameters (configuration)
