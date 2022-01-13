@@ -51,6 +51,23 @@ The switch of languages is executed via the Play! `LanguageController`. You can 
 - `data` which can be seen as a container for the `JSON` object that will contain all journey data.
 - `lastUpdated`
 
+Within mongoDB, user answers will look something like this:
+
+```
+{
+    "_id" : "test",
+    "data" : {
+        "firstNumber" : 10,
+        "secondNumber" : 20
+    },
+    "lastUpdated" : ISODate("2022-01-13T10:04:29.777Z")
+}
+
+```
+
+Please note that `firstNumber` and `secondNumber` represent the journey [pages](./app/pages) that the user goes through. For example, you can see the `JSON` path for the `First Number` page together with its name [here](./app/pages/FirstNumberPage.scala)
+
+
 ## Site parameters (configuration)
 
 You can see all site configuration parameters within the [`application.conf`](./conf/application.conf).
