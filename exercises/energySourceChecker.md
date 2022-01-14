@@ -24,6 +24,8 @@ You can find their offering [here](https://api.carbonintensity.org.uk/) and we w
 
 You can find the documentation for the selected API [here](https://carbon-intensity.github.io/api-definitions/#get-regional-intensity-from-to-postcode-postcode). In a nutshell, given a postcode and a time range you will receive a list of all the different energy sources that supplied energy to that location during the given timeframe, together with the overall percentage of each energy type.
 
+Any errors thrown by the API will have to be handled accordingly and the user redirected (if appropriate) to the `there-is-a-problem` page.
+
 ### Report to generate
 
 - The report will display a GOV.UK [panel](https://design-system.service.gov.uk/), it will be coloured as such:
