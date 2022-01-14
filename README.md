@@ -53,7 +53,7 @@ Finally, to be able to compile and run the solution you will need `sbt` installe
 
 ### Finally, run it!
 
-To run the application, execute `sbt run` and it will start it in port `9335`. [This](http://localhost:9335/hmrc-frontend-sandbox/) will be the root of your site (index)
+To run the application, execute `sbt run` and it will start it in port `9335`. [http://localhost:9335/hmrc-frontend-sandbox/](http://localhost:9335/hmrc-frontend-sandbox/) will be the root of your site (index)
 
 ## Routes
 You can see the catalogue of accessible pages on your site via your [`routes`](./conf/app.routes) file. Every new page you create will require its associated `route` here.
