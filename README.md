@@ -8,6 +8,12 @@ This application follows a standard [`MVC pattern`](https://en.wikipedia.org/wik
 - [Views](https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/views)
 - [Controllers](https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/controllers)
 
+## How to use this sandbox
+
+This application replicates the basics of the majority of web application front ends created by HMRC. Take your time with it, run it, play around and experiment with it, understand how everything works - get familiarised with the patterns, styling and terminology and reach out if you have any questions. If you get familiar with this sandbox, then everything will be a little bit more familiar when you start at HMRC.
+
+Once you are reasonably happy with it, then why don't you take the next step and try and implement [this exercise](./exercises/energySourceChecker.md)?
+
 ## How to run it
 
 ### Java SDK
