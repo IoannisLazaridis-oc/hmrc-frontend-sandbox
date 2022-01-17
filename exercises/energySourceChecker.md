@@ -24,8 +24,6 @@ You can find their offering [here](https://api.carbonintensity.org.uk/) and we w
 
 You can find the documentation for the selected API [here](https://carbon-intensity.github.io/api-definitions/#get-regional-intensity-from-to-postcode-postcode). In a nutshell, given a postcode and a time range you will receive a list of all the different energy sources that supplied energy to that location during the given timeframe, together with the overall percentage of each energy type.
 
-Any errors thrown by the API will have to be handled accordingly and the user redirected (if appropriate) to the `there-is-a-problem` page.
-
 ### Report to generate
 
 - The report will display a GOV.UK [panel](https://design-system.service.gov.uk/), it will be coloured as such:
@@ -34,4 +32,10 @@ Any errors thrown by the API will have to be handled accordingly and the user re
   - Red, with the text `Most of your energy came from a non renewable source` for any other source.
 - Underneath the GOV.UK panel, there will be a breakdown of all the sources.
 
+### Tips
 
+- The API you are going to be integrating with is in BETA and failure will be frequent. Any errors thrown by the API will have to be handled accordingly and the user redirected (if appropriate) to the `there-is-a-problem` page.
+- To build the journey, you have two options:
+  - Build the user journey using the `scaffolds`, there is a guide in this README [here](https://github.com/hmrc/hmrc-frontend-scaffold.g8#adding-new-pages-using-scaffolds)
+  - Build the journey from scratch yourself, you can refer to the existing journey in this sandbox as an example. 
+  - Remember that the navigation between pages is done by the `navigator` class and is abstracted out from the controller and injected into it. You can refer to it here [here](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/app/navigation/Navigator.scala) and its tests are here [here](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/test/navigation/NavigatorSpec.scala)
