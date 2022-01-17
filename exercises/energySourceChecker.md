@@ -36,6 +36,6 @@ You can find the documentation for the selected API [here](https://carbon-intens
 
 - The API you are going to be integrating with is in BETA and failure will be frequent. Any errors thrown by the API will have to be handled accordingly and the user redirected (if appropriate) to the `there-is-a-problem` page.
 - To build the journey, you have two options:
-  - Build the user journey using the `scaffolds`, there is a guide in this README [here](https://github.com/hmrc/hmrc-frontend-scaffold.g8#adding-new-pages-using-scaffolds)
+  - Build the user journey using the `scaffolds`, there is a guide in this README [here](https://github.com/hmrc/hmrc-frontend-scaffold.g8#adding-new-pages-using-scaffolds), for example - there is a `datePage` scaffold ready to use.
   - Build the journey from scratch yourself, you can refer to the existing journey in this sandbox as an example. 
   - Remember that the navigation between pages is done by the `navigator` class and is abstracted out from the controller and injected into it. You can refer to it here [here](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/app/navigation/Navigator.scala) and its tests are here [here](https://github.com/opencastsoftware/hmrc-frontend-sandbox/blob/master/test/navigation/NavigatorSpec.scala)
