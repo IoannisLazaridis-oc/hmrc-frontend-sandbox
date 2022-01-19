@@ -8,7 +8,7 @@ This application follows a standard [`MVC pattern`](https://en.wikipedia.org/wik
 - [Views](https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/views)
 - [Controllers](https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/controllers)
 
-It is worth noting that this application utilises the `Play! framework`, a web application framework for languages compiled and run on the JVM (mainly Java and Scala). We recommend that you bookmark [this documentation](https://www.playframework.com/documentation/2.1.x/ScalaHome) and use it as the `go to` place to have a better understanding on how this application works.
+It is worth noting that this application utilises the `Play! framework`, a web application framework for languages compiled and run on the JVM (mainly Java and Scala). We recommend that you bookmark [this documentation](https://www.playframework.com/documentation/2.1.x/ScalaHome) and use it as the `go to` place to have a better understanding on how this application works. There are also some really handy tutorials [here](https://www.playframework.com/documentation/2.1.x/ScalaTodoList) if you want to understand `Play!` better.
 
 ## How to use this sandbox
 
