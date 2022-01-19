@@ -8,6 +8,8 @@ This application follows a standard [`MVC pattern`](https://en.wikipedia.org/wik
 - [Views](https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/views)
 - [Controllers](https://github.com/opencastsoftware/hmrc-frontend-sandbox/tree/master/app/controllers)
 
+It is worth noting that this application utilises the `Play! framework`, a web application framework for languages compiled and run on the JVM (mainly Java and Scala). We recommend that you bookmark [this documentation](https://www.playframework.com/documentation/2.1.x/ScalaHome) and use it as the `go to` place to have a better understanding on how this application works.
+
 ## How to use this sandbox
 
 This application replicates the basics of the majority of web application front ends created by HMRC. Take your time with it, run it, play around and experiment with it, understand how everything works - get familiarised with the patterns, styling and terminology and reach out if you have any questions. If you get familiar with this sandbox, then everything will be a little bit more familiar when you start at HMRC.
