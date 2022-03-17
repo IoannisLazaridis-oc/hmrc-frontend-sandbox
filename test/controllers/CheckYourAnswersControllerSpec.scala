@@ -22,7 +22,12 @@ import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import uk.gov.hmrc.govukfrontend.views.Aliases.Value
 import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
-import uk.gov.hmrc.govukfrontend.views.viewmodels.summarylist.{ActionItem, Actions, Key, SummaryListRow}
+import uk.gov.hmrc.govukfrontend.views.viewmodels.summarylist.{
+  ActionItem,
+  Actions,
+  Key,
+  SummaryListRow
+}
 import viewmodels.govuk.SummaryListFluency
 import views.html.CheckYourAnswersView
 
@@ -32,8 +37,13 @@ class CheckYourAnswersControllerSpec extends SpecBase with SummaryListFluency {
 
     "must render all records" in {
 
-      val userAnswers = emptyUserAnswers.set(FirstNumberPage,5).success.value
-        .set(SecondNumberPage,10).success.value
+      val userAnswers = emptyUserAnswers
+        .set(FirstNumberPage, 5)
+        .success
+        .value
+        .set(SecondNumberPage, 10)
+        .success
+        .value
 
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
 
@@ -52,13 +62,17 @@ class CheckYourAnswersControllerSpec extends SpecBase with SummaryListFluency {
             content = Text("5"),
             classes = "govuk-!-width-one-quater"
           ),
-          actions = Some(Actions(
-            items = Seq(ActionItem(
-              href = "/hmrc-frontend-sandbox/change-first-number",
-              content = Text("Change"),
-              visuallyHiddenText = None
-            ))
-          ))
+          actions = Some(
+            Actions(
+              items = Seq(
+                ActionItem(
+                  href = "/hmrc-frontend-sandbox/change-first-number",
+                  content = Text("Change"),
+                  visuallyHiddenText = None
+                )
+              )
+            )
+          )
         )
 
         val expectedRow2 = SummaryListRow(
@@ -70,16 +84,20 @@ class CheckYourAnswersControllerSpec extends SpecBase with SummaryListFluency {
             content = Text("10"),
             classes = "govuk-!-width-one-quater"
           ),
-          actions = Some(Actions(
-            items = Seq(ActionItem(
-              href = "/hmrc-frontend-sandbox/change-second-number",
-              content = Text("Change"),
-              visuallyHiddenText = None
-            ))
-          ))
+          actions = Some(
+            Actions(
+              items = Seq(
+                ActionItem(
+                  href = "/hmrc-frontend-sandbox/change-second-number",
+                  content = Text("Change"),
+                  visuallyHiddenText = None
+                )
+              )
+            )
+          )
         )
 
-        val list = SummaryListViewModel(Seq(expectedRow1,expectedRow2))
+        val list = SummaryListViewModel(Seq(expectedRow1, expectedRow2))
 
         status(result) mustEqual OK
         contentAsString(result) mustEqual view(list)(request, messages(application)).toString

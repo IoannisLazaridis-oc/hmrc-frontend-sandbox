@@ -41,15 +41,15 @@ class SecondNumberFormProviderSpec extends IntFieldBehaviours {
     behave like intField(
       form,
       fieldName,
-      nonNumericError  = FormError(fieldName, "secondNumber.error.nonNumeric"),
+      nonNumericError = FormError(fieldName, "secondNumber.error.nonNumeric"),
       wholeNumberError = FormError(fieldName, "secondNumber.error.wholeNumber")
     )
 
     behave like intFieldWithRange(
       form,
       fieldName,
-      minimum       = minimum,
-      maximum       = maximum,
+      minimum = minimum,
+      maximum = maximum,
       expectedError = FormError(fieldName, "secondNumber.error.outOfRange", Seq(minimum, maximum))
     )
 

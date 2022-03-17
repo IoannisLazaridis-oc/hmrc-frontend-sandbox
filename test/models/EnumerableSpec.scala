@@ -16,9 +16,9 @@
 
 package models
 
-import org.scalatest.{EitherValues, OptionValues}
 import org.scalatest.freespec.AnyFreeSpec
 import org.scalatest.matchers.must.Matchers
+import org.scalatest.{EitherValues, OptionValues}
 import play.api.libs.json._
 
 object EnumerableSpec {
@@ -36,7 +36,12 @@ object EnumerableSpec {
   }
 }
 
-class EnumerableSpec extends AnyFreeSpec with Matchers with EitherValues with OptionValues with Enumerable.Implicits {
+class EnumerableSpec
+  extends AnyFreeSpec
+  with Matchers
+  with EitherValues
+  with OptionValues
+  with Enumerable.Implicits {
 
   import EnumerableSpec._
 
@@ -46,15 +51,16 @@ class EnumerableSpec extends AnyFreeSpec with Matchers with EitherValues with Op
       implicitly[Reads[Foo]]
     }
 
-    Foo.values.foreach {
-      value =>
-        s"bind correctly for: $value" in {
-          Json.fromJson[Foo](JsString(value.toString)).asEither.value mustEqual value
-        }
+    Foo.values.foreach { value =>
+      s"bind correctly for: $value" in {
+        Json.fromJson[Foo](JsString(value.toString)).asEither.value mustEqual value
+      }
     }
 
     "must fail to bind for invalid values" in {
-      Json.fromJson[Foo](JsString("invalid")).asEither.left.value must contain(JsPath -> Seq(JsonValidationError("error.invalid")))
+      Json.fromJson[Foo](JsString("invalid")).asEither.left.value must contain(
+        JsPath -> Seq(JsonValidationError("error.invalid"))
+      )
     }
   }
 
@@ -64,11 +70,10 @@ class EnumerableSpec extends AnyFreeSpec with Matchers with EitherValues with Op
       implicitly[Writes[Foo]]
     }
 
-    Foo.values.foreach {
-      value =>
-        s"write $value" in {
-          Json.toJson(value) mustEqual JsString(value.toString)
-        }
+    Foo.values.foreach { value =>
+      s"write $value" in {
+        Json.toJson(value) mustEqual JsString(value.toString)
+      }
     }
   }
 

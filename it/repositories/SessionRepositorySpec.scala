@@ -17,14 +17,14 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 class SessionRepositorySpec
   extends AnyFreeSpec
-    with Matchers
-    with DefaultPlayMongoRepositorySupport[UserAnswers]
-    with ScalaFutures
-    with IntegrationPatience
-    with OptionValues
-    with MockitoSugar {
+  with Matchers
+  with DefaultPlayMongoRepositorySupport[UserAnswers]
+  with ScalaFutures
+  with IntegrationPatience
+  with OptionValues
+  with MockitoSugar {
 
-  private val instant = Instant.now
+  private val instant          = Instant.now
   private val stubClock: Clock = Clock.fixed(instant, ZoneId.systemDefault)
 
   private val userAnswers = UserAnswers("id", Json.obj("foo" -> "bar"), Instant.ofEpochSecond(1))
@@ -34,8 +34,8 @@ class SessionRepositorySpec
 
   protected override val repository = new SessionRepository(
     mongoComponent = mongoComponent,
-    appConfig      = mockAppConfig,
-    clock          = stubClock
+    appConfig = mockAppConfig,
+    clock = stubClock
   )
 
   ".set" - {

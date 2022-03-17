@@ -18,7 +18,7 @@ lazy val root = (project in file("."))
     scalacSettings,
     scoverageSettings,
     playSettings,
-    sbtWebSettings,
+    sbtWebSettings
   )
   .settings(
     majorVersion := 0,
@@ -29,7 +29,12 @@ lazy val root = (project in file("."))
   )
 
 lazy val buildSettings = Def.settings(
-  useSuperShell := false
+  useSuperShell     := false,
+  semanticdbEnabled := true,
+  semanticdbVersion := scalafixSemanticdb.revision,
+  scalafixDependencies ++= Seq(
+    "com.github.liancheng" %% "organize-imports" % "0.6.0"
+  )
 )
 
 lazy val scalacSettings = Def.settings(
