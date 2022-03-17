@@ -41,3 +41,9 @@ jobs:
 
       - name: Build & test
         run: sbt clean coverage test IntegrationTest/test coverageOff coverageReport
+
+    services:
+      mongo:
+        image: mongo:4.0
+        ports:
+          - 27017-21019:27017:27019
