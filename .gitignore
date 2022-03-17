@@ -40,3 +40,4 @@ bin
 .vscode/
 project/.bloop/
 project/metals.sbt
+.bsp/
