@@ -15,6 +15,7 @@ lazy val root = (project in file("."))
     inThisBuild(buildSettings),
     inConfig(Test)(testSettings),
     inConfig(IntegrationTest)(itSettings),
+    inConfig(IntegrationTest)(scalafixConfigSettings(IntegrationTest)),
     scalacSettings,
     scoverageSettings,
     playSettings,
@@ -72,7 +73,7 @@ lazy val itSettings = Defaults.itSettings ++ Def.settings(
 )
 
 lazy val scoverageSettings = Def.settings(
-  ScoverageKeys.coverageMinimumStmtTotal := 78,
+  ScoverageKeys.coverageMinimumStmtTotal := 88,
   ScoverageKeys.coverageFailOnMinimum    := true,
   ScoverageKeys.coverageHighlighting     := true,
   ScoverageKeys.coverageExcludedFiles := Seq(
