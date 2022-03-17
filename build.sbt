@@ -38,7 +38,15 @@ lazy val buildSettings = Def.settings(
 )
 
 lazy val scalacSettings = Def.settings(
-  scalacOptions += "-Wconf:src=target/.*:silent"
+  // Silence warnings from generated code
+  scalacOptions += "-Wconf:src=target/.*:silent",
+  scalacOptions ~= { opts =>
+    opts.filterNot(Set("-Xfatal-warnings"))
+  },
+  Test / scalacOptions ~= { opts =>
+    // Triggered by Mockito's any()
+    opts.filterNot(Set("-Ywarn-dead-code"))
+  }
 )
 
 lazy val testSettings = Def.settings(
