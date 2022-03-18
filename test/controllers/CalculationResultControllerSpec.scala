@@ -43,8 +43,13 @@ class CalculationResultControllerSpec extends SpecBase {
     }
 
     "must return the sum of first number and second number" in {
-      val userAnswers = emptyUserAnswers.set(FirstNumberPage,5).success.value
-        .set(SecondNumberPage,10).success.value
+      val userAnswers = emptyUserAnswers
+        .set(FirstNumberPage, 5)
+        .success
+        .value
+        .set(SecondNumberPage, 10)
+        .success
+        .value
 
       val application = applicationBuilder(userAnswers = Some(userAnswers)).build()
 

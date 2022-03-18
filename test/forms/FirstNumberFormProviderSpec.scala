@@ -41,15 +41,15 @@ class FirstNumberFormProviderSpec extends IntFieldBehaviours {
     behave like intField(
       form,
       fieldName,
-      nonNumericError  = FormError(fieldName, "firstNumber.error.nonNumeric"),
+      nonNumericError = FormError(fieldName, "firstNumber.error.nonNumeric"),
       wholeNumberError = FormError(fieldName, "firstNumber.error.wholeNumber")
     )
 
     behave like intFieldWithRange(
       form,
       fieldName,
-      minimum       = minimum,
-      maximum       = maximum,
+      minimum = minimum,
+      maximum = maximum,
       expectedError = FormError(fieldName, "firstNumber.error.outOfRange", Seq(minimum, maximum))
     )
 

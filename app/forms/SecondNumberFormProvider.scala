@@ -17,8 +17,9 @@
 package forms
 
 import forms.mappings.Mappings
-import javax.inject.Inject
 import play.api.data.Form
+
+import javax.inject.Inject
 
 class SecondNumberFormProvider @Inject() extends Mappings {
 
@@ -27,7 +28,8 @@ class SecondNumberFormProvider @Inject() extends Mappings {
       "value" -> int(
         "secondNumber.error.required",
         "secondNumber.error.wholeNumber",
-        "secondNumber.error.nonNumeric")
-          .verifying(inRange(10, 20, "secondNumber.error.outOfRange"))
+        "secondNumber.error.nonNumeric"
+      )
+        .verifying(inRange(10, 20, "secondNumber.error.outOfRange"))
     )
 }

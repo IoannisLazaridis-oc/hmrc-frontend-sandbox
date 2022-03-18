@@ -16,7 +16,6 @@
 
 package generators
 
-import models._
 import org.scalacheck.Arbitrary
 import org.scalacheck.Arbitrary.arbitrary
 import pages._
@@ -24,7 +23,8 @@ import play.api.libs.json.{JsValue, Json}
 
 trait UserAnswersEntryGenerators extends PageGenerators with ModelGenerators {
 
-  implicit lazy val arbitrarySecondNumberUserAnswersEntry: Arbitrary[(SecondNumberPage.type, JsValue)] =
+  implicit lazy val arbitrarySecondNumberUserAnswersEntry
+    : Arbitrary[(SecondNumberPage.type, JsValue)] =
     Arbitrary {
       for {
         page  <- arbitrary[SecondNumberPage.type]
@@ -32,7 +32,8 @@ trait UserAnswersEntryGenerators extends PageGenerators with ModelGenerators {
       } yield (page, value)
     }
 
-  implicit lazy val arbitraryFirstNumberUserAnswersEntry: Arbitrary[(FirstNumberPage.type, JsValue)] =
+  implicit lazy val arbitraryFirstNumberUserAnswersEntry
+    : Arbitrary[(FirstNumberPage.type, JsValue)] =
     Arbitrary {
       for {
         page  <- arbitrary[FirstNumberPage.type]

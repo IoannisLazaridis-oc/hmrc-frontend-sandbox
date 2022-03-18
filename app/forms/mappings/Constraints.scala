@@ -16,58 +16,57 @@
 
 package forms.mappings
 
-import java.time.LocalDate
-
 import play.api.data.validation.{Constraint, Invalid, Valid}
+
+import java.time.LocalDate
 
 trait Constraints {
 
   protected def firstError[A](constraints: Constraint[A]*): Constraint[A] =
-    Constraint {
-      input =>
-        constraints
-          .map(_.apply(input))
-          .find(_ != Valid)
-          .getOrElse(Valid)
+    Constraint { input =>
+      constraints
+        .map(_.apply(input))
+        .find(_ != Valid)
+        .getOrElse(Valid)
     }
 
-  protected def minimumValue[A](minimum: A, errorKey: String)(implicit ev: Ordering[A]): Constraint[A] =
-    Constraint {
-      input =>
+  protected def minimumValue[A](minimum: A, errorKey: String)(implicit
+    ev: Ordering[A]
+  ): Constraint[A] =
+    Constraint { input =>
+      import ev._
 
-        import ev._
-
-        if (input >= minimum) {
-          Valid
-        } else {
-          Invalid(errorKey, minimum)
-        }
+      if (input >= minimum) {
+        Valid
+      } else {
+        Invalid(errorKey, minimum)
+      }
     }
 
-  protected def maximumValue[A](maximum: A, errorKey: String)(implicit ev: Ordering[A]): Constraint[A] =
-    Constraint {
-      input =>
+  protected def maximumValue[A](maximum: A, errorKey: String)(implicit
+    ev: Ordering[A]
+  ): Constraint[A] =
+    Constraint { input =>
+      import ev._
 
-        import ev._
-
-        if (input <= maximum) {
-          Valid
-        } else {
-          Invalid(errorKey, maximum)
-        }
+      if (input <= maximum) {
+        Valid
+      } else {
+        Invalid(errorKey, maximum)
+      }
     }
 
-  protected def inRange[A](minimum: A, maximum: A, errorKey: String)(implicit ev: Ordering[A]): Constraint[A] =
-    Constraint {
-      input =>
+  protected def inRange[A](minimum: A, maximum: A, errorKey: String)(implicit
+    ev: Ordering[A]
+  ): Constraint[A] =
+    Constraint { input =>
+      import ev._
 
-        import ev._
-
-        if (input >= minimum && input <= maximum) {
-          Valid
-        } else {
-          Invalid(errorKey, minimum, maximum)
-        }
+      if (input >= minimum && input <= maximum) {
+        Valid
+      } else {
+        Invalid(errorKey, minimum, maximum)
+      }
     }
 
   protected def regexp(regex: String, errorKey: String): Constraint[String] =

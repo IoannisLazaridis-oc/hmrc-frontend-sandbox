@@ -18,8 +18,6 @@ package controllers
 
 import controllers.actions.{DataRetrievalAction, IdentifierAction}
 import models.UserAnswers
-
-import javax.inject.Inject
 import play.api.i18n.I18nSupport
 import play.api.libs.json.Json
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
@@ -27,16 +25,19 @@ import repositories.SessionRepository
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
 import views.html.IndexView
 
-class IndexController @Inject()(
-                                 val controllerComponents: MessagesControllerComponents,
-                                 identify: IdentifierAction,
-                                 sessionRepository: SessionRepository,
-                                 getData: DataRetrievalAction,
-                                 view: IndexView
-                               ) extends FrontendBaseController with I18nSupport {
+import javax.inject.Inject
+
+class IndexController @Inject() (
+  val controllerComponents: MessagesControllerComponents,
+  identify: IdentifierAction,
+  sessionRepository: SessionRepository,
+  getData: DataRetrievalAction,
+  view: IndexView
+) extends FrontendBaseController
+  with I18nSupport {
 
   def onPageLoad: Action[AnyContent] = (identify andThen getData) { implicit request =>
-    if (request.userAnswers.isEmpty) sessionRepository.set(UserAnswers("test",Json.obj()))
+    if (request.userAnswers.isEmpty) sessionRepository.set(UserAnswers("test", Json.obj()))
 
     Ok(view())
   }

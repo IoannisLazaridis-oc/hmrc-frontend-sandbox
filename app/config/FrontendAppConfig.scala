@@ -28,7 +28,7 @@ class FrontendAppConfig @Inject() (configuration: Configuration) {
   val host: String    = configuration.get[String]("host")
   val appName: String = configuration.get[String]("appName")
 
-  private val contactHost = configuration.get[String]("contact-frontend.host")
+  private val contactHost                  = configuration.get[String]("contact-frontend.host")
   private val contactFormServiceIdentifier = "hmrc-frontend-sandbox"
 
   def feedbackUrl(implicit request: RequestHeader): String =
@@ -38,8 +38,9 @@ class FrontendAppConfig @Inject() (configuration: Configuration) {
   val loginContinueUrl: String = configuration.get[String]("urls.loginContinue")
   val signOutUrl: String       = configuration.get[String]("urls.signOut")
 
-  private val exitSurveyBaseUrl: String = configuration.get[Service]("microservice.services.feedback-frontend").baseUrl
-  val exitSurveyUrl: String             = s"$exitSurveyBaseUrl/feedback/hmrc-frontend-sandbox"
+  private val exitSurveyBaseUrl: String =
+    configuration.get[Service]("microservice.services.feedback-frontend").baseUrl
+  val exitSurveyUrl: String = s"$exitSurveyBaseUrl/feedback/hmrc-frontend-sandbox"
 
   val languageTranslationEnabled: Boolean =
     configuration.get[Boolean]("features.welsh-translation")
