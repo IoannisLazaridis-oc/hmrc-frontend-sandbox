@@ -18,30 +18,31 @@ package controllers
 
 import controllers.actions._
 import pages.{FirstNumberPage, SecondNumberPage}
-
-import javax.inject.Inject
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
 import views.html.CalculationResultView
 
-class CalculationResultController @Inject()(
-                                       override val messagesApi: MessagesApi,
-                                       identify: IdentifierAction,
-                                       getData: DataRetrievalAction,
-                                       requireData: DataRequiredAction,
-                                       val controllerComponents: MessagesControllerComponents,
-                                       view: CalculationResultView
-                                     ) extends FrontendBaseController with I18nSupport {
+import javax.inject.Inject
+
+class CalculationResultController @Inject() (
+  override val messagesApi: MessagesApi,
+  identify: IdentifierAction,
+  getData: DataRetrievalAction,
+  requireData: DataRequiredAction,
+  val controllerComponents: MessagesControllerComponents,
+  view: CalculationResultView
+) extends FrontendBaseController
+  with I18nSupport {
 
   def onPageLoad: Action[AnyContent] = (identify andThen getData andThen requireData) {
     implicit request =>
-      val firstNumber: Option[Int] = request.userAnswers.get(FirstNumberPage)
+      val firstNumber: Option[Int]  = request.userAnswers.get(FirstNumberPage)
       val secondNumber: Option[Int] = request.userAnswers.get(SecondNumberPage)
 
-      (firstNumber,secondNumber) match {
-        case (Some(first),Some(second)) => Ok(view(Some(first + second)))
-        case _ => Ok(view(None))
+      (firstNumber, secondNumber) match {
+        case (Some(first), Some(second)) => Ok(view(Some(first + second)))
+        case _                           => Ok(view(None))
       }
   }
 }

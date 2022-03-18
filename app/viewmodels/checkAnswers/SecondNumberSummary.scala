@@ -24,19 +24,20 @@ import uk.gov.hmrc.govukfrontend.views.viewmodels.summarylist.SummaryListRow
 import viewmodels.govuk.summarylist._
 import viewmodels.implicits._
 
-object SecondNumberSummary  {
+object SecondNumberSummary {
 
   def row(answers: UserAnswers)(implicit messages: Messages): Option[SummaryListRow] =
-    answers.get(SecondNumberPage).map {
-      answer =>
-
-        SummaryListRowViewModel(
-          key     = "secondNumber.checkYourAnswersLabel",
-          value   = ValueViewModel(answer.toString),
-          actions = Seq(
-            ActionItemViewModel("site.change", routes.SecondNumberController.onPageLoad(CheckMode).url)
-              .withVisuallyHiddenText(messages("secondNumber.change.hidden"))
+    answers.get(SecondNumberPage).map { answer =>
+      SummaryListRowViewModel(
+        key = "secondNumber.checkYourAnswersLabel",
+        value = ValueViewModel(answer.toString),
+        actions = Seq(
+          ActionItemViewModel(
+            "site.change",
+            routes.SecondNumberController.onPageLoad(CheckMode).url
           )
+            .withVisuallyHiddenText(messages("secondNumber.change.hidden"))
         )
+      )
     }
 }

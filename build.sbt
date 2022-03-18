@@ -15,10 +15,11 @@ lazy val root = (project in file("."))
     inThisBuild(buildSettings),
     inConfig(Test)(testSettings),
     inConfig(IntegrationTest)(itSettings),
+    inConfig(IntegrationTest)(scalafixConfigSettings(IntegrationTest)),
     scalacSettings,
     scoverageSettings,
     playSettings,
-    sbtWebSettings,
+    sbtWebSettings
   )
   .settings(
     majorVersion := 0,
@@ -29,11 +30,24 @@ lazy val root = (project in file("."))
   )
 
 lazy val buildSettings = Def.settings(
-  useSuperShell := false
+  useSuperShell     := false,
+  semanticdbEnabled := true,
+  semanticdbVersion := scalafixSemanticdb.revision,
+  scalafixDependencies ++= Seq(
+    "com.github.liancheng" %% "organize-imports" % "0.6.0"
+  )
 )
 
 lazy val scalacSettings = Def.settings(
-  scalacOptions += "-Wconf:src=target/.*:silent"
+  // Silence warnings from generated code
+  scalacOptions += "-Wconf:src=target/.*:silent",
+  scalacOptions ~= { opts =>
+    opts.filterNot(Set("-Xfatal-warnings"))
+  },
+  Test / scalacOptions ~= { opts =>
+    // Triggered by Mockito's any()
+    opts.filterNot(Set("-Ywarn-dead-code"))
+  }
 )
 
 lazy val testSettings = Def.settings(
@@ -59,7 +73,7 @@ lazy val itSettings = Defaults.itSettings ++ Def.settings(
 )
 
 lazy val scoverageSettings = Def.settings(
-  ScoverageKeys.coverageMinimumStmtTotal := 78,
+  ScoverageKeys.coverageMinimumStmtTotal := 88,
   ScoverageKeys.coverageFailOnMinimum    := true,
   ScoverageKeys.coverageHighlighting     := true,
   ScoverageKeys.coverageExcludedFiles := Seq(
