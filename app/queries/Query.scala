@@ -19,6 +19,7 @@ package queries
 import models.UserAnswers
 import play.api.libs.json.JsPath
 
+import scala.annotation.nowarn
 import scala.util.{Success, Try}
 
 sealed trait Query {
@@ -30,6 +31,7 @@ trait Gettable[A] extends Query
 
 trait Settable[A] extends Query {
 
+  @nowarn("msg=parameter value value in method cleanup is never used")
   def cleanup(value: Option[A], userAnswers: UserAnswers): Try[UserAnswers] =
     Success(userAnswers)
 }

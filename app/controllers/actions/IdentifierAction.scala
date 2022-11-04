@@ -26,12 +26,14 @@ import uk.gov.hmrc.auth.core._
 import uk.gov.hmrc.http.HeaderCarrier
 import uk.gov.hmrc.play.http.HeaderCarrierConverter
 
+import scala.annotation.nowarn
 import scala.concurrent.{ExecutionContext, Future}
 
 trait IdentifierAction
   extends ActionBuilder[IdentifierRequest, AnyContent]
   with ActionFunction[Request, IdentifierRequest]
 
+@nowarn("msg=parameter value config in class AuthenticatedIdentifierAction is never used")
 class AuthenticatedIdentifierAction @Inject() (
   override val authConnector: AuthConnector,
   config: FrontendAppConfig,
@@ -40,6 +42,7 @@ class AuthenticatedIdentifierAction @Inject() (
   extends IdentifierAction
   with AuthorisedFunctions {
 
+  @nowarn("msg=local val hc in method invokeBlock is never used")
   override def invokeBlock[A](
     request: Request[A],
     block: IdentifierRequest[A] => Future[Result]

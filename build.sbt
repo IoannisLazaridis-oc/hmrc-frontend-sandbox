@@ -23,7 +23,7 @@ lazy val root = (project in file("."))
   )
   .settings(
     majorVersion := 0,
-    scalaVersion := "2.12.15",
+    scalaVersion := "2.13.8",
     name         := appName,
     libraryDependencies ++= AppDependencies(),
     Global / onChangedBuildSource := ReloadOnSourceChanges
@@ -40,7 +40,14 @@ lazy val buildSettings = Def.settings(
 
 lazy val scalacSettings = Def.settings(
   // Silence warnings from generated code
-  scalacOptions += "-Wconf:src=target/.*:silent",
+  scalacOptions ++= Seq(
+    "-Wconf:msg=.*dead code following this construct.*&src=.*Spec\\.scala:s",
+    "-Wconf:msg=.*target is deprecated.*:s",
+    "-Wconf:src=target/.*:silent",
+    "-Werror",
+    "-Ypatmat-exhaust-depth",
+    "40"
+  ),
   scalacOptions ~= { opts =>
     opts.filterNot(Set("-Xfatal-warnings"))
   },
@@ -95,14 +102,13 @@ lazy val playSettings = Def.settings(
   TwirlKeys.templateImports ++= Seq(
     "play.twirl.api.HtmlFormat",
     "play.twirl.api.HtmlFormat._",
-    "uk.gov.hmrc.govukfrontend.views.html.components._",
-    "uk.gov.hmrc.govukfrontend.views.html.helpers._",
-    "uk.gov.hmrc.hmrcfrontend.views.html.components._",
-    "uk.gov.hmrc.hmrcfrontend.views.html.helpers._",
     "views.ViewUtils._",
     "models.Mode",
     "controllers.routes._",
-    "viewmodels.govuk.all._"
+    "viewmodels.govuk.all._",
+    "uk.gov.hmrc.govukfrontend.views.html.components._",
+    "uk.gov.hmrc.hmrcfrontend.views.html.components._",
+    "uk.gov.hmrc.hmrcfrontend.views.html.helpers._"
   )
 )
 
@@ -123,4 +129,8 @@ lazy val sbtWebSettings = Def.settings(
         )
       )
   )
+)
+
+ThisBuild / libraryDependencySchemes ++= Seq(
+  "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
 )

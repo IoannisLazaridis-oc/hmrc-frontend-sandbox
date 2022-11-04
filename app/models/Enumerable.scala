@@ -18,6 +18,8 @@ package models
 
 import play.api.libs.json._
 
+import scala.annotation.nowarn
+
 trait Enumerable[A] {
 
   def withName(str: String): Option[A]
@@ -46,6 +48,7 @@ object Enumerable {
       }
     }
 
+    @nowarn("msg=parameter value evidence.* in method writes is never used")
     implicit def writes[A: Enumerable]: Writes[A] = {
       Writes(value => JsString(value.toString))
     }
