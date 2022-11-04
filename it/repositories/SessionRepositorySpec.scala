@@ -2,13 +2,12 @@ package repositories
 
 import config.FrontendAppConfig
 import models.UserAnswers
-import org.mockito.Mockito.when
+import org.mockito.MockitoSugar
 import org.mongodb.scala.model.Filters
 import org.scalatest.OptionValues
 import org.scalatest.concurrent.{IntegrationPatience, ScalaFutures}
 import org.scalatest.freespec.AnyFreeSpec
 import org.scalatest.matchers.must.Matchers
-import org.scalatestplus.mockito.MockitoSugar
 import play.api.libs.json.Json
 import uk.gov.hmrc.mongo.test.DefaultPlayMongoRepositorySupport
 
@@ -24,7 +23,7 @@ class SessionRepositorySpec
   with OptionValues
   with MockitoSugar {
 
-  private val instant: Instant = ZonedDateTime.now().withNano(0).toInstant()
+  private val instant: Instant = ZonedDateTime.now().withNano(0).toInstant
   private val stubClock: Clock = Clock.fixed(instant, ZoneId.systemDefault)
 
   private val userAnswers = UserAnswers("id", Json.obj("foo" -> "bar"), Instant.ofEpochSecond(1))
