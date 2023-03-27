@@ -67,7 +67,7 @@ firstNumber.checkYourAnswersLabel = Rhif cyntaf
 firstNumber.error.nonNumeric = Rhowch eich rhif cyntaf gan ddefnyddio rhifau
 firstNumber.error.required = Rhowch eich rhif cyntaf
 firstNumber.error.wholeNumber = Rhowch eich rhif cyntaf gan ddefnyddio rhifau cyfan
-firstNumber.error.outOfRange = Rhaid i'ch rhif cyntaf fod rhwng {0} a {1}
+firstNumber.error.outOfRange = Rhaid i''ch rhif cyntaf fod rhwng {0} a {1}
 firstNumber.change.hidden = FirstNumber
 
 secondNumber.title = Beth yw eich ail rif?
@@ -76,7 +76,7 @@ secondNumber.checkYourAnswersLabel = Ail rif
 secondNumber.error.nonNumeric = Rhowch eich ail rif gan ddefnyddio rhifau
 secondNumber.error.required = Rhowch eich ail rif
 secondNumber.error.wholeNumber = Rhowch eich ail rif gan ddefnyddio rhifau cyfan
-secondNumber.error.outOfRange = Rhaid i'ch ail rif fod rhwng {0} a {1}
+secondNumber.error.outOfRange = Rhaid i''ch ail rif fod rhwng {0} a {1}
 secondNumber.change.hidden = SecondNumber
 
 calculationResult.title = Eich canlyniad cyfrifo
