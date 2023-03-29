@@ -35,7 +35,7 @@ import scala.concurrent.Future
 class FirstNumberControllerSpec extends SpecBase with MockitoSugar {
 
   val formProvider = new FirstNumberFormProvider()
-  val form         = formProvider()
+  val form = formProvider()
 
   def onwardRoute = Call("GET", "/foo")
 
