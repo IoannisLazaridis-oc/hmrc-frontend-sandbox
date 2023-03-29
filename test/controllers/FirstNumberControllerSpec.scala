@@ -164,5 +164,64 @@ class FirstNumberControllerSpec extends SpecBase with MockitoSugar {
         redirectLocation(result).value mustEqual routes.JourneyRecoveryController.onPageLoad().url
       }
     }
+
+    "must return a Bad Request and errors when out of range data is submitted" in {
+
+      val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
+
+      running(application) {
+        val request =
+          FakeRequest(POST, firstNumberRoute)
+            .withFormUrlEncodedBody(("value", "99"))
+
+        val boundForm = form.bind(Map("value" -> "99"))
+
+        val view = application.injector.instanceOf[FirstNumberView]
+
+        val result = route(application, request).value
+        val resultAsString = contentAsString(result)
+
+        status(result) mustEqual BAD_REQUEST
+        resultAsString mustEqual view(boundForm, NormalMode)(
+          request,
+          messages(application)
+        ).toString
+
+        //Ensure the numbers in the range are populated and not placeholders {0} {1}
+        resultAsString.contains("Your first number must be between 0 and 10") mustBe true
+
+      }
+    }
+
+    "must return a Bad Request and errors when out of range data is submitted in Welsh" in {
+
+      val application = applicationBuilder(userAnswers = Some(emptyUserAnswers)).build()
+
+      running(application) {
+        val request =
+          FakeRequest(POST, firstNumberRoute)
+            .withFormUrlEncodedBody(("value", "99"))
+            .withHeaders(("Accept-Language", "cy"))
+
+        val boundForm = form.bind(Map("value" -> "99"))
+
+        val view = application.injector.instanceOf[FirstNumberView]
+
+        val result = route(application, request).value
+        val resultAsString = contentAsString(result)
+
+        status(result) mustEqual BAD_REQUEST
+        resultAsString mustEqual view(boundForm, NormalMode)(
+          request,
+          messagesWelsh(application)
+        ).toString
+
+        // Ensure the numbers in the range are populated and not placeholders {0} {1}
+        // Previously the Welsh message was not doing this
+        resultAsString.contains("Rhaid i&#x27;ch rhif cyntaf fod rhwng 0 a 10") mustBe true
+
+      }
+    }
+
   }
 }

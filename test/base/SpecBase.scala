@@ -27,6 +27,7 @@ import play.api.i18n.{Messages, MessagesApi}
 import play.api.inject.bind
 import play.api.inject.guice.GuiceApplicationBuilder
 import play.api.test.FakeRequest
+import play.i18n.Lang
 
 trait SpecBase
   extends AnyFreeSpec
@@ -42,6 +43,9 @@ trait SpecBase
 
   def messages(app: Application): Messages =
     app.injector.instanceOf[MessagesApi].preferred(FakeRequest())
+
+  def messagesWelsh(app: Application): Messages =
+    app.injector.instanceOf[MessagesApi].preferred(Seq(Lang.forCode("cy")))
 
   protected def applicationBuilder(
     userAnswers: Option[UserAnswers] = None
