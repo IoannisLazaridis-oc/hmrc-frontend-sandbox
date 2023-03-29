@@ -35,7 +35,7 @@ import scala.concurrent.Future
 class FirstNumberControllerSpec extends SpecBase with MockitoSugar {
 
   val formProvider = new FirstNumberFormProvider()
-  val form = formProvider()
+  val form         = formProvider()
 
   def onwardRoute = Call("GET", "/foo")
 
@@ -178,7 +178,7 @@ class FirstNumberControllerSpec extends SpecBase with MockitoSugar {
 
         val view = application.injector.instanceOf[FirstNumberView]
 
-        val result = route(application, request).value
+        val result         = route(application, request).value
         val resultAsString = contentAsString(result)
 
         status(result) mustEqual BAD_REQUEST
@@ -187,7 +187,7 @@ class FirstNumberControllerSpec extends SpecBase with MockitoSugar {
           messages(application)
         ).toString
 
-        //Ensure the numbers in the range are populated and not placeholders {0} {1}
+        // Ensure the numbers in the range are populated and not placeholders {0} {1}
         resultAsString.contains("Your first number must be between 0 and 10") mustBe true
 
       }
@@ -207,7 +207,7 @@ class FirstNumberControllerSpec extends SpecBase with MockitoSugar {
 
         val view = application.injector.instanceOf[FirstNumberView]
 
-        val result = route(application, request).value
+        val result         = route(application, request).value
         val resultAsString = contentAsString(result)
 
         status(result) mustEqual BAD_REQUEST
