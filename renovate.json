@@ -2,5 +2,15 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["sbt-package", "sbt-plugin"],
+      "registryUrls": [
+        "https://repo.maven.apache.org/maven2/",
+        "https://open.artefacts.tax.service.gov.uk/maven2",
+        "https://open.artefacts.tax.service.gov.uk/ivy2"
+      ]
+    }
   ]
 }
