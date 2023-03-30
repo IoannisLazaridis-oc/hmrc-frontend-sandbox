@@ -26,6 +26,7 @@ import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
 import views.html.IndexView
 
 import javax.inject.Inject
+import scala.concurrent.{ExecutionContext, Future}
 
 class IndexController @Inject() (
   val controllerComponents: MessagesControllerComponents,
@@ -33,12 +34,17 @@ class IndexController @Inject() (
   sessionRepository: SessionRepository,
   getData: DataRetrievalAction,
   view: IndexView
-) extends FrontendBaseController
+)(implicit ec: ExecutionContext)
+  extends FrontendBaseController
   with I18nSupport {
 
-  def onPageLoad: Action[AnyContent] = (identify andThen getData) { implicit request =>
-    if (request.userAnswers.isEmpty) sessionRepository.set(UserAnswers("test", Json.obj()))
+  def onPageLoad: Action[AnyContent] = (identify andThen getData).async { implicit request =>
+    val initialiseUserAnswers =
+      if (request.userAnswers.isEmpty)
+        sessionRepository.set(UserAnswers("test", Json.obj()))
+      else
+        Future.unit
 
-    Ok(view())
+    initialiseUserAnswers.map(_ => Ok(view()))
   }
 }
