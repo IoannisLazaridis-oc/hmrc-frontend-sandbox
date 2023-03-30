@@ -23,7 +23,7 @@ lazy val root = Project(appName, file("."))
   )
   .settings(
     majorVersion := 0,
-    scalaVersion := "2.13.8",
+    scalaVersion := "2.13.10",
     name         := appName,
     libraryDependencies ++= AppDependencies(),
     Global / onChangedBuildSource := ReloadOnSourceChanges,
@@ -59,11 +59,15 @@ lazy val scalacSettings = Def.settings(
     "40"
   ),
   scalacOptions ~= { opts =>
-    opts.filterNot(Set("-Werror"))
+    opts.filterNot(Set("-Werror", "-Xfatal-warnings"))
   },
   Test / scalacOptions ~= { opts =>
-    // Triggered by Mockito's any()
-    opts.filterNot(Set("-Wdead-code"))
+    opts.filterNot(
+      Set(
+        "-Wdead-code",    // Triggered by Mockito's any()
+        "-Wvalue-discard" // Triggered by normal use of Scalatest
+      )
+    )
   }
 )
 
