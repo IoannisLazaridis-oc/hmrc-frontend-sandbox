@@ -5,6 +5,10 @@
   ],
   "packageRules": [
     {
+      "matchPackageNames": "mongo",
+      "allowedVersions": "<4.5"
+    },
+    {
       "matchDatasources": ["sbt-package", "sbt-plugin"],
       "registryUrls": [
         "https://repo.maven.apache.org/maven2/",
