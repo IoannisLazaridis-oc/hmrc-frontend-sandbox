@@ -1,6 +1,9 @@
 import play.sbt.routes.RoutesKeys
 import scoverage.ScoverageKeys
 import uk.gov.hmrc.DefaultBuildSettings
+import scala.Ordering.Implicits._
+import _root_.io.github.davidgregory084.ScalaVersion
+import _root_.io.github.davidgregory084.DevMode
 
 lazy val appName: String = "hmrc-frontend-sandbox"
 
@@ -52,23 +55,32 @@ lazy val buildSettings = Def.settings(
 )
 
 lazy val scalacSettings = Def.settings(
-  // Silence warnings from generated code
-  scalacOptions ++= Seq(
-    "-Wconf:src=target/.*:silent",
-    "-Ypatmat-exhaust-depth",
-    "40"
-  ),
-  scalacOptions ~= { opts =>
-    opts.filterNot(Set("-Werror", "-Xfatal-warnings"))
-  },
-  Test / scalacOptions ~= { opts =>
-    opts.filterNot(
-      Set(
-        "-Wdead-code",    // Triggered by Mockito's any()
-        "-Wvalue-discard" // Triggered by normal use of Scalatest
-      )
+  ThisBuild / tpolecatDefaultOptionsMode := DevMode,
+  tpolecatScalacOptions ++= Set(
+    // Fix patmat exhaustivity warnings caused by the scaffold code
+    ScalacOptions.other(
+      "-Ypatmat-exhaust-depth",
+      List("40"),
+      // -Ypatmat-exhaust-depth was removed in Scala 3
+      version => version < ScalaVersion.V3_0_0
+    ),
+    // Silence warnings from generated code
+    ScalacOptions.other(
+      "-Wconf:src=target/.*:silent",
+      version => {
+        // -Wconf was added in Scala 2.13.2 and backported to Scala 2.12.13
+        version.isBetween(ScalaVersion(2, 12, 13), ScalaVersion.V2_13_0) ||
+        version.isBetween(ScalaVersion(2, 13, 2), ScalaVersion.V3_0_0)
+      }
     )
-  }
+  ),
+  Test / tpolecatExcludeOptions ++= Set(
+    ScalacOptions.warnDeadCode,        // Triggered by Mockito any()
+    ScalacOptions.warnNonUnitStatement // Triggered by ScalaTest assertions
+  ),
+  IntegrationTest / tpolecatExcludeOptions ++= Set(
+    ScalacOptions.warnNonUnitStatement // Triggered by ScalaTest assertions
+  )
 )
 
 lazy val testSettings = Def.settings(
