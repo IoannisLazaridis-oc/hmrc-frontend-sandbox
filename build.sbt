@@ -26,7 +26,7 @@ lazy val root = Project(appName, file("."))
   )
   .settings(
     majorVersion := 0,
-    scalaVersion := "2.13.10",
+    scalaVersion := "2.13.11",
     name         := appName,
     libraryDependencies ++= AppDependencies(),
     Global / onChangedBuildSource := ReloadOnSourceChanges,
