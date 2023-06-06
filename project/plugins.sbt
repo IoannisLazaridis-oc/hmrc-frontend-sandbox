@@ -14,7 +14,7 @@ addSbtPlugin("net.ground5hark.sbt"       % "sbt-concat"         % "0.2.0")
 addSbtPlugin("com.typesafe.sbt"          % "sbt-digest"         % "1.1.4")
 addSbtPlugin("com.timushev.sbt"          % "sbt-updates"        % "0.6.4")
 addSbtPlugin("org.scalameta"             % "sbt-scalafmt"       % "2.5.0")
-addSbtPlugin("ch.epfl.scala"             % "sbt-scalafix"       % "0.10.4")
+addSbtPlugin("ch.epfl.scala"             % "sbt-scalafix"       % "0.11.0")
 addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat"       % "0.4.2")
 
 ThisBuild / libraryDependencySchemes ++= Seq(
