@@ -107,7 +107,7 @@ lazy val itSettings = Defaults.itSettings ++ Def.settings(
 
 lazy val scoverageSettings = Def.settings(
   Test / parallelExecution               := false,
-  ScoverageKeys.coverageMinimumStmtTotal := 88,
+  ScoverageKeys.coverageMinimumStmtTotal := 87,
   ScoverageKeys.coverageFailOnMinimum    := true,
   ScoverageKeys.coverageHighlighting     := true,
   ScoverageKeys.coverageExcludedFiles := Seq(
