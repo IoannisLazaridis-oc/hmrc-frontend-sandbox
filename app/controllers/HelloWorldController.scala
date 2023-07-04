@@ -23,14 +23,13 @@ import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
 import views.html.HelloWorldView
 
 import javax.inject.Inject
-import scala.annotation.nowarn
+import scala.annotation.unused
 
-@nowarn("msg=parameter value requireData in class HelloWorldController is never used")
 class HelloWorldController @Inject() (
   override val messagesApi: MessagesApi,
   identify: IdentifierAction,
   getData: DataRetrievalAction,
-  requireData: DataRequiredAction,
+  @unused requireData: DataRequiredAction,
   val controllerComponents: MessagesControllerComponents,
   view: HelloWorldView
 ) extends FrontendBaseController
