@@ -15,7 +15,7 @@ addSbtPlugin("com.typesafe.sbt"          % "sbt-digest"         % "1.1.4")
 addSbtPlugin("com.timushev.sbt"          % "sbt-updates"        % "0.6.4")
 addSbtPlugin("org.scalameta"             % "sbt-scalafmt"       % "2.5.0")
 addSbtPlugin("ch.epfl.scala"             % "sbt-scalafix"       % "0.11.0")
-addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat"       % "0.4.3")
+addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat"       % "0.4.4")
 
 ThisBuild / libraryDependencySchemes ++= Seq(
   "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
