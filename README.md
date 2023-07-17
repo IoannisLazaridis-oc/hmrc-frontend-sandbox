@@ -103,6 +103,87 @@ up:
     - Make sure your MongoDB instance is running on the default port (`27017`). If you need to use a different port,
       update the application's configuration accordingly.
 
+### MongoDB Setup (Docker)
+1. Install Docker: Ensure that you have Docker installed on your machine. You can download and install Docker from the official Docker website (https://www.docker.com/get-started).
+2. Pull the MongoDB Docker Image: Open a terminal or command prompt and execute the following command to pull the MongoDB Docker image
+   ```shell
+   docker pull mongo:5
+   ```
+   This command fetches the latest official MongoDB image from the Docker Hub repository.
+3. Create a Docker Container: Once the image is downloaded, you can create a MongoDB container by executing the following command:
+   ```shell
+   docker run --name my-mongodb -d -p 27017:27017 mongo:5
+   ```
+   Let's break down the command:
+   **--name my-mongodb** specifies a name for the container. You can choose any name you prefer.
+   **-d** runs the container in detached mode.
+   **-p 27017:27017** maps the container's port 27017 to the host's port 27017, allowing you to access MongoDB on your local machine.
+   **mongo:5** specifies the name of the Docker image to use for the container.
+   Running this command creates a new MongoDB container named "my-mongodb" and starts it in the background.
+4. Verify Container Status: You can check the status of your MongoDB container by executing the `docker ps` command:
+      ```
+   ➜  docker ps
+   CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                      NAMES
+   22f402430963   mongo:5   "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:27017->27017/tcp   my-mongodb
+   ```
+   This command lists all running containers. Ensure that your MongoDB container is listed and has a status of "Up".
+5. Connect to MongoDB:
+   To connect to MongoDB running in the Docker container, you can use any MongoDB client or the MongoDB shell.
+   Connect to it using the following command:
+   ```shell
+   mongosh --host localhost --port 27017
+   ```
+   This command connects to the MongoDB server running in the Docker container on your local machine.
+   - If MongoDB is installed and running correctly, you should see the MongoDB wellcome message:
+   ```shell
+   Current Mongosh Log ID:	64b54d1b599bb2be32f80860
+   Connecting to:		mongodb://localhost:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.1
+   Using MongoDB:		5.0.19
+   Using Mongosh:		1.10.1
+
+   For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+   ------
+      The server generated these startup warnings when booting
+      2023-07-17T14:15:12.101+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+      2023-07-17T14:15:12.731+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   ------
+   ```
+
+
+### MongoDB Setup (Docker) - stop and remove:
+1. List Running Containers: Open a terminal or command prompt and execute `docker ps` command to list all running containers:
+   ```
+   ➜  docker ps
+   CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                      NAMES
+   22f402430963   mongo:5   "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:27017->27017/tcp   my-mongodb
+   ```
+   This command displays a list of running containers along with their details.
+2. Identify the MongoDB Container: From the list of running containers,
+   locate the MongoDB container you want to stop and remove. Note down the container ID or the container name.
+3. Stop the Container: To stop the MongoDB container, execute the following command,
+   replacing `<container_id>` or `<container_name>` with the appropriate value:
+   ```shell
+   docker stop <container_id or container_name>
+   ```
+   For example, if the container ID is 22f402430963, the command would be:
+   ```shell
+   docker stop 22f402430963
+   ```
+   This command gracefully stops the MongoDB container.
+4. Remove the Container: Once the container is stopped, you can remove it by executing the following command,
+   again replacing `<container_id>` or `<container_name>` with the appropriate value:
+   ```shell
+   docker rm <container_id or container_name>
+   ```
+   For example, if the container ID is 22f402430963, the command would be:
+   ```shell
+   docker rm 22f402430963
+   ```
+   This command removes the MongoDB container from your system.
+5. Verify Container Removal: You can verify that the container has been successfully removed by executing the docker ps command again.
+   The MongoDB container should no longer be listed among the running containers.
+
 ### MongoDB GUI (Robo 3T)
 Once you have MongoDB installed, you can install a MongoDB GUI tool to easily view and manage the data generated by your sandbox application. [Robo 3T](https://robomongo.org/) is a popular GUI tool that is simple to use. Follow the steps below to install Robo 3T:
 
