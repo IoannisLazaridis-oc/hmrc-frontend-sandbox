@@ -29,9 +29,7 @@ import uk.gov.hmrc.play.http.HeaderCarrierConverter
 import scala.annotation.unused
 import scala.concurrent.{ExecutionContext, Future}
 
-trait IdentifierAction
-  extends ActionBuilder[IdentifierRequest, AnyContent]
-  with ActionFunction[Request, IdentifierRequest]
+trait IdentifierAction extends ActionBuilder[IdentifierRequest, AnyContent]
 
 class AuthenticatedIdentifierAction @Inject() (
   override val authConnector: AuthConnector,
