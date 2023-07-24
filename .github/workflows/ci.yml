@@ -16,18 +16,18 @@ jobs:
 
     steps:
       - name: Checkout current branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 0
 
       - name: Setup Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@cd89f46ac9d01407894225f350157564c9c7cee2 # v3
         with:
           distribution: 'temurin'
           java-version: '11'
 
       - name: Cache sbt
-        uses: actions/cache@v3
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3
         with:
           path: |
             ~/.sbt
@@ -46,7 +46,7 @@ jobs:
 
     services:
       mongo:
-        image: mongo:4.4
+        image: mongo:4.4@sha256:e0dc28ed5e0d6340c6f3def017cf0ae6078dbd155f97f643105b11a24f54cadf
         ports:
           - 27017:27017
           - 27018:27018
