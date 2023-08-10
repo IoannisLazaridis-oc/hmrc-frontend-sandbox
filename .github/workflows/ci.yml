@@ -46,7 +46,7 @@ jobs:
 
     services:
       mongo:
-        image: mongo:4.4@sha256:e0dc28ed5e0d6340c6f3def017cf0ae6078dbd155f97f643105b11a24f54cadf
+        image: mongo:4.4@sha256:de5682f87f037eda383ef3c0f198d52e34cded92c53efac50f44be4eaef86c7c
         ports:
           - 27017:27017
           - 27018:27018
