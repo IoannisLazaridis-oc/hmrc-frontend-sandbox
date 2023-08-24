@@ -107,12 +107,12 @@ up:
 1. Install Docker: Ensure that you have Docker installed on your machine. You can download and install Docker from the official Docker website (https://www.docker.com/get-started).
 2. Pull the MongoDB Docker Image: Open a terminal or command prompt and execute the following command to pull the MongoDB Docker image
    ```shell
-   docker pull mongo:5
+   docker pull mongo:4.4
    ```
    This command fetches the latest official MongoDB image from the Docker Hub repository.
 3. Create a Docker Container: Once the image is downloaded, you can create a MongoDB container by executing the following command:
    ```shell
-   docker run --name my-mongodb -d -p 27017:27017 mongo:5
+   docker run --name my-mongodb -d -p 27017:27017 mongo:4.4
    ```
    Let's break down the command:
    **--name my-mongodb** specifies a name for the container. You can choose any name you prefer.
