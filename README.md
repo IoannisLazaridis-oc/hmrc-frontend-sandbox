@@ -47,17 +47,17 @@ up:
 1. Install MongoDB:
     - Open Terminal and run the following command to install MongoDB using Homebrew:
    ```shell
-    brew install mongodb-community@6.0
+    brew install mongodb-community@4.4
    ```
     - If you don't have Homebrew installed, follow the instructions [here](https://brew.sh/) to install it first.
 
 2. Start MongoDB as a service:
    - Open Terminal and run the following command:
    ```shell
-   brew services start mongodb-community@6.0
+   brew services start mongodb-community@4.4
    ```
    - This command will start MongoDB as a background service. You can use
-   the ```brew services stop mongodb-community@6.0``` command to stop the service when needed.
+   the ```brew services stop mongodb-community@4.4``` command to stop the service when needed.
 
 
 3. Verify MongoDB service installation:
