@@ -18,15 +18,15 @@ package controllers
 
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
-
+import views.html.ProfileView
 import javax.inject.Inject
 
 class ProfileController @Inject()(
   val controllerComponents: MessagesControllerComponents,
-  // view: ProfileView
+  view: ProfileView
 ) extends FrontendBaseController{
 
-  def onPageLoad: Action[AnyContent] = Action {
-    Ok("Profile")
+  def onPageLoad: Action[AnyContent] = Action { implicit request =>
+    Ok(view())
   }
 }
