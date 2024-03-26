@@ -18,15 +18,16 @@ package controllers
 
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
+import views.html.PostcodeView
 
 import javax.inject.Inject
 
 class PostcodeController @Inject()(
   val controllerComponents: MessagesControllerComponents,
-  //view: ...
+  view: PostcodeView
 ) extends FrontendBaseController {
 
   def onPageLoad: Action[AnyContent] = Action { implicit request =>
-    Ok("Postcode")
+    Ok(view())
   }
 }
