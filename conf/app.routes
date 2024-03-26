@@ -33,3 +33,6 @@ GET        /change-second-number                        controllers.SecondNumber
 POST       /change-second-number                        controllers.SecondNumberController.onSubmit(mode: Mode = CheckMode)
 
 GET        /calculation-result                       controllers.CalculationResultController.onPageLoad()
+
+GET        /profile                                     controllers.ProfileController.onPageLoad()
+
