@@ -19,6 +19,7 @@ package controllers
 import base.SpecBase
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
+import views.html.PostcodeView
 
 class PostcodeControllerSpec extends SpecBase{
 
@@ -33,7 +34,11 @@ class PostcodeControllerSpec extends SpecBase{
 
         val result = route(application, request).value
 
+        val view = application.injector.instanceOf[PostcodeView]
+
         status(result) mustEqual OK
+
+        contentAsString(result) mustEqual view()(request, messages(application)).toString
       }
     }
   }
