@@ -15,7 +15,8 @@
  *@
 
 @this(
-layout: templates.Layout
+layout: templates.Layout,
+govukButton: GovukButton
 )
 
 @()(implicit request: Request[_], messages: Messages)
@@ -25,7 +26,15 @@ pageTitle = messages("profile.title"),
 showBackLink = false
 ) {
 
-<h1 class="govuk-heading-xl">@messages("profile.heading")</h1>
+ <h1 class="govuk-heading-xl">@messages("profile.heading")</h1>
 
-<p class="govuk-body">@messages("profile.guidance")</p>
+ <p class="govuk-body">@messages("profile.guidance")</p>
+
+
+ <p class="govuk-body">
+  @govukButton(
+  ButtonViewModel(messages("site.start"))
+  .asLink(routes.PostcodeController.onPageLoad().url)
+  )
+ </p>
 }
