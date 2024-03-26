@@ -88,4 +88,8 @@ profile.title = Your Profile
 profile.heading = Welcome to Your Profile
 profile.guidance = This is some information about your profile.
 
+postcode.title = Postcode
+postcode.heading = Submit your postcode
+postcode.guidance = This is some information about your postcode.
+
 
