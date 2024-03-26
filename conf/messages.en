@@ -84,3 +84,8 @@ calculationResult.success = Success
 calculationResult.heading = Your calculation result
 calculationResult.text = Your calculation result is
 
+profile.title = Your Profile
+profile.heading = Welcome to Your Profile
+profile.guidance = This is some information about your profile.
+
+
