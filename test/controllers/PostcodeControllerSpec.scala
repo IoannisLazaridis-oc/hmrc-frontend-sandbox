@@ -37,5 +37,4 @@ class PostcodeControllerSpec extends SpecBase{
       }
     }
   }
-
 }
